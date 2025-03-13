@@ -62,7 +62,8 @@ public class ObjectPickup : MonoBehaviour
         }
     }
 
-    void ThrowObject()
+ 
+ void ThrowObject()
     {
         if (heldObject != null)
         {
@@ -87,4 +88,5 @@ public class ObjectPickup : MonoBehaviour
             heldObject = null;
         }
     }
+
 }

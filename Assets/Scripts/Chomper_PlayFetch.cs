@@ -4,8 +4,8 @@ using UnityEngine.AI;
 public class ChomperPlayFetch : MonoBehaviour
 {
     public Transform player;
-    public float pickupDistance = 1.0f;
-    public float dropDistance = 4.0f;
+    public float pickupDistance = 1.2f;
+    public float dropDistance = 2.0f;
 
     private NavMeshAgent m_Agent;
     private Animator m_Animator;
@@ -52,16 +52,20 @@ public class ChomperPlayFetch : MonoBehaviour
         }
         else // Chomper is not fetching
         {
-            m_Animator.SetBool("Walking", false);
-            m_Animator.SetBool("Running", false);
-            
+            // Restart follow script
             if (followScript != null)
             {
                 followScript.StartFollowing();
             }
+            m_Animator.SetBool("Walking", false);
+            m_Animator.SetBool("Running", false);
         }
     }
-  
+
+       
+        
+
+
 
     public void StartFetch(GameObject ball)
     {
@@ -122,7 +126,10 @@ public class ChomperPlayFetch : MonoBehaviour
             isFetching = false; 
             hasBall = false;
 
+            if (followScript != null)
+            {
+                followScript.StartFollowing();
+            }
         }
     }
 }
-

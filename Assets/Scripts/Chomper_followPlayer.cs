@@ -4,8 +4,8 @@ using UnityEngine.AI;
 public class FollowPlayer : MonoBehaviour
 {
     public Transform player;
-    public float stopDistance = 1.5f;
-    public float runThreshold = 15f;
+    public float stopDistance = 4f;
+    public float runThreshold = 10f;
 
     private NavMeshAgent m_Agent;
     private Animator m_Animator;
@@ -28,6 +28,7 @@ public class FollowPlayer : MonoBehaviour
             if (isMoving)
             {
                 m_Agent.SetDestination(player.position);
+                m_Animator.SetBool("Walking", isMoving);
             }
             else
             {
